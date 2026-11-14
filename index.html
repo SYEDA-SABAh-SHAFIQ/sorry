@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <audio controls loop>
+        <source src="Pehla Nasha Lyrical _ Aamir Khan _ Sadhana Sargam _ Udit Narayan _ Jo Jeeta Wohi Sikandar (1).mp4" type="video/mp4">
+    </audio>
+</div>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #090509;
+            color: white;
+            font-family: Georgia, serif;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --pink: #ff397d;
+            --wine: #620d30;
+            --gold: #e9bd77;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #10060ded;
+            border-bottom: 1px solid #a52c52;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo {
+            color: #ff8eae;
+            font-size: 23px;
+            font-style: italic;
+        }
+
+        nav {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav button,
+        .music {
+            border: 0;
+            background: transparent;
+            color: white;
+            padding: 9px 12px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 20px;
+        }
+
+        nav button:hover,
+        nav button.active {
+            background: #8c1745;
+            color: #fff;
+        }
+
+        .music {
+            border: 1px solid var(--gold);
+        }
+
+        .page {
+            display: none;
+            min-height: 88vh;
+            padding: 65px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at center, #481027 0%, #180711 48%, #090509 100%);
+        }
+
+        .page.active {
+            display: block;
+            animation: appear .7s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        h1 {
+            color: #ff8db2;
+            font-size: clamp(38px, 7vw, 75px);
+            margin: 30px 0;
+            text-shadow: 0 0 20px #ff2674;
+        }
+
+        h2 {
+            color: var(--gold);
+            font-size: 35px;
+            margin-bottom: 25px;
+        }
+
+        p {
+            color: #f4dbe4;
+            font-size: 19px;
+            line-height: 1.9;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .main-btn {
+            background: linear-gradient(45deg, #a20e49, #ff397d);
+            border: 1px solid #ffb3c9;
+            color: white;
+            padding: 15px 32px;
+            border-radius: 40px;
+            margin: 25px 8px;
+            cursor: pointer;
+            font-size: 17px;
+            box-shadow: 0 0 20px #ff397d77;
+            transition: .3s;
+        }
+
+        .main-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 35px #ff397d;
+        }
+
+        .heart {
+            font-size: 85px;
+            animation: heartbeat 1.3s infinite;
+            display: inline-block;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.2)
+            }
+        }
+
+        .petal {
+            position: fixed;
+            top: -30px;
+            z-index: 2;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(600deg);
+                opacity: 0
+            }
+        }
+
+        .glass {
+            max-width: 750px;
+            margin: 30px auto;
+            padding: 35px;
+            border: 1px solid #a83a60;
+            background: #ffffff0b;
+            border-radius: 20px;
+            box-shadow: 0 0 30px #a8174433;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 20px;
+            max-width: 950px;
+            margin: 35px auto;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #3b0c24, #160811);
+            border: 1px solid #a74467;
+            border-radius: 18px;
+            padding: 28px 18px;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-9px);
+            box-shadow: 0 0 25px #ff397d55;
+        }
+
+        .card span {
+            font-size: 42px
+        }
+
+        .card h3 {
+            color: #ff9dbb;
+            margin: 15px
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            color: #c995a9;
+            background: #10060d;
+        }
+
+        /* VIDEO STORY */
+        .video-box {
+            max-width: 850px;
+            margin: 30px auto;
+            border: 2px solid #ff4788;
+            border-radius: 22px;
+            padding: 12px;
+            background: #090509;
+            box-shadow: 0 0 35px #ff397d66;
+        }
+
+        .stage {
+            height: 350px;
+            background:
+                radial-gradient(circle at 50% 40%, #682344, #100713 75%);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .characters {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 35px;
+            font-size: 90px;
+            margin: 15px;
+        }
+
+        .boy,
+        .girl {
+            display: inline-block;
+            transition: all .5s;
+        }
+
+        .boy.angry {
+            animation: angry .5s infinite alternate;
+        }
+
+        @keyframes angry {
+            from {
+                transform: translateX(-4px)
+            }
+
+            to {
+                transform: translateX(4px)
+            }
+        }
+
+        .girl.sad {
+            animation: sad 2s infinite alternate;
+        }
+
+        @keyframes sad {
+            to {
+                transform: translateY(8px)
+            }
+        }
+
+        .girl.happy {
+            animation: happy .7s infinite alternate;
+        }
+
+        @keyframes happy {
+            to {
+                transform: translateY(-12px) scale(1.1)
+            }
+        }
+
+        .story-caption {
+            font-size: 20px;
+            color: #ffd4e2;
+            padding: 15px;
+            min-height: 75px;
+        }
+
+        .video-controls {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin: 18px;
+        }
+
+        .video-controls button {
+            background: #761239;
+            border: 1px solid #ff83aa;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .progress {
+            width: 90%;
+            height: 6px;
+            background: #44172b;
+            border-radius: 20px;
+            margin: auto;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #ff4384;
+            width: 0%;
+            border-radius: 20px;
+            transition: width .3s;
+        }
+
+        .letter {
+            background: #ead0a4;
+            color: #401b20;
+            padding: 35px;
+            max-width: 700px;
+            margin: 30px auto;
+            border-radius: 5px;
+            box-shadow: 0 0 30px #e5ad6355;
+            transform: rotate(-1deg);
+        }
+
+        .letter p {
+            color: #401b20
+        }
+
+        .choice {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .final-heart {
+            font-size: 130px;
+            animation: heartbeat 1s infinite;
+        }
+
+        @media(max-width:600px) {
+            header {
+                justify-content: center
+            }
+
+            nav button {
+                padding: 8px;
+                font-size: 12px
+            }
+
+            .page {
+                padding: 45px 13px
+            }
+
+            .stage {
+                height: 300px
+            }
+
+            .characters {
+                font-size: 65px;
+                gap: 15px
+            }
+
+            .glass {
+                padding: 22px 15px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">♡ Sorry Wamiq</div>
+        <nav>
+            <button class="active" onclick="showPage('home',this)">Home</button>
+            <button onclick="showPage('mistake',this)">My Mistake</button>
+            <button onclick="showPage('video',this)">Our Story</button>
+            <button onclick="showPage('feelings',this)">My Feelings</button>
+            <button onclick="showPage('letter',this)">My Letter</button>
+            <button onclick="showPage('forgive',this)">Forgive Me</button>
+        </nav>
+        <button class="music" onclick="toggleMusic()">♫ Music <span id="musicStatus">Off</span></button>
+    </header>
+
+    <!-- PAGE 1 -->
+    <section class="page active" id="home">
+        <div class="heart">💗</div>
+        <h1>I'm Sorry Wamiq</h1>
+        <p>A little surprise made with a sincere heart.</p>
+        <p>Please give me a moment to say something special.</p>
+        <button class="main-btn" onclick="showPage('mistake')">
+            Open My Apology ♡
+        </button>
+        <div style="font-size:55px;margin-top:25px">🧸 🌹 💌</div>
+    </section>
+
+    <!-- PAGE 2 -->
+    <section class="page" id="mistake">
+        <h1>My Mistake 🥺</h1>
+        <div class="glass">
+            <div style="font-size:65px">🥺</div>
+            <h2>Wamiq, I'm Really Sorry</h2>
+            <p>I know things didn't go the way they should have.</p>
+            <p>I understand that my mistake may have hurt your feelings.</p>
+            <p>I don't want to ignore your feelings or pretend nothing happened.</p>
+            <p>I'm here to say that I am genuinely sorry.</p>
+        </div>
+        <button class="main-btn" onclick="showPage('video')">Watch Our Little Story →</button>
+    </section>
+
+    <!-- PAGE 3 -->
+    <section class="page" id="video">
+        <h1>Our Little Story 🎬</h1>
+        <p>A small animated story about a misunderstanding and making things right.</p>
+
+        <div class="video-box">
+            <div class="stage">
+                <div id="sceneTitle" style="color:#ffd18e;font-size:22px">
+                    A Little Misunderstanding...
+                </div>
+                <div class="characters">
+                    <span class="boy angry" id="boy">😠</span>
+                    <span class="girl sad" id="girl">🥺</span>
+                </div>
+                <div id="flowers" style="font-size:48px;opacity:0">💐</div>
+                <div class="story-caption" id="caption">
+                    Wamiq is upset. The girl wants to make things right.
+                </div>
+            </div>
+            <div class="progress">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="video-controls">
+                <button onclick="playStory()">▶ Play</button>
+                <button onclick="pauseStory()">Ⅱ Pause</button>
+                <button onclick="restartStory()">↻ Replay</button>
+            </div>
+        </div>
+        <button class="main-btn" onclick="showPage('feelings')">Continue ♡</button>
+    </section>
+
+    <!-- PAGE 4 -->
+    <section class="page" id="feelings">
+        <h1>My Feelings 💗</h1>
+        <div class="cards">
+            <div class="card">
+                <span>🥺</span>
+                <h3>I'm Sorry</h3>
+                <p>I truly regret hurting your feelings.</p>
+            </div>
+            <div class="card">
+                <span>🌹</span>
+                <h3>You Matter</h3>
+                <p>Your feelings deserve to be heard and respected.</p>
+            </div>
+            <div class="card">
+                <span>🧸</span>
+                <h3>Please Smile</h3>
+                <p>I hope one day this little surprise makes you smile.</p>
+            </div>
+            <div class="card">
+                <span>💌</span>
+                <h3>One More Chance</h3>
+                <p>I'd love a chance to make things better through my actions.</p>
+            </div>
+        </div>
+        <button class="main-btn" onclick="showPage('letter')">Read My Letter →</button>
+    </section>
+
+    <!-- PAGE 5 -->
+    <section class="page" id="letter">
+        <h1>A Letter For You 💌</h1>
+        <div class="letter">
+            <h2>Dear Wamiq ❤️</h2>
+            <p>
+                I know a simple sorry cannot instantly fix everything.
+                But I want you to know that I genuinely mean it.
+                I never wanted to make you feel unimportant.
+                Your feelings matter to me and I want to understand
+                where I went wrong.
+            </p>
+            <br>
+            <p>
+                I cannot change what happened, but I can learn from it.
+                I hope that with time you can forgive me.
+                Please don't feel pressured to respond immediately.
+            </p>
+            <br>
+            <h3>I'm truly sorry. ❤️</h3>
+            <p>With sincere feelings ♡</p>
+        </div>
+        <button class="main-btn" onclick="showPage('forgive')">One Last Thing →</button>
+    </section>
+
+    <!-- PAGE 6 -->
+    <section class="page" id="forgive">
+        <div class="final-heart">💖</div>
+        <h1>Can You Forgive Me?</h1>
+        <p>Wamiq, whenever you're ready, I'd love to make things right.</p>
+        <div class="choice">
+            <button class="main-btn" onclick="forgiveYes()">Yes ❤️</button>
+            <button class="main-btn" onclick="forgiveNo()">Not Yet 🥺</button>
+        </div>
+        <div class="glass" id="answer">
+            <p>Your feelings matter. Take your time. ❤️</p>
+        </div>
+        <p style="margin-top:30px">Thank you for reading my little apology.</p>
+        <button class="main-btn" onclick="showPage('home')">↻ Start Again</button>
+    </section>
+
+    <footer>
+        Made with a sincere heart ♡ For Wamiq
+    </footer>
+
+    <script>
+        const pages = document.querySelectorAll('.page');
+
+        function showPage(id, btn) {
+            pages.forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+
+            document.querySelectorAll('nav button').forEach(b => {
+                b.classList.remove('active');
+            });
+            if (btn) btn.classList.add('active');
+
+            window.scrollTo({top: 0, behavior: 'smooth'});
+
+            if (id === 'video') playStory();
+            else pauseStory();
+        }
+
+        // Falling petals
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.innerHTML = ['🌹', '🌸', '💕', '✨'][Math.floor(Math.random() * 4)];
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = (4 + Math.random() * 5) + 's';
+            petal.style.fontSize = (15 + Math.random() * 20) + 'px';
+            document.body.appendChild(petal);
+            setTimeout(() => petal.remove(), 9000);
+        }
+        setInterval(createPetal, 600);
+
+        // STORY ANIMATION
+        const scenes = [
+            {
+                title: 'A Little Misunderstanding...',
+                boy: '😠', girl: '🥺', flower: '', opacity: 0,
+                caption: 'Wamiq is upset. The girl wants to make things right.',
+                duration: 3500
+            },
+            {
+                title: 'She Wants To Say Sorry',
+                boy: '😠', girl: '🥺', flower: '💐', opacity: 1,
+                caption: 'She gathers her courage and comes with flowers.',
+                duration: 3500
+            },
+            {
+                title: 'A Small Gesture',
+                boy: '😐', girl: '🌷', flower: '💐', opacity: 1,
+                caption: 'She offers the flowers and sincerely apologizes.',
+                duration: 3500
+            },
+            {
+                title: 'His Anger Slowly Fades',
+                boy: '🙂', girl: '😊', flower: '💐', opacity: 1,
+                caption: 'He understands that she genuinely means her apology.',
+                duration: 3500
+            },
+            {
+                title: 'A Fresh Start',
+                boy: '🥰', girl: '😊', flower: '❤️', opacity: 1,
+                caption: 'They smile and share a warm, friendly hug.',
+                duration: 4000
+            }
+        ];
+
+        let currentScene = 0;
+        let storyTimer = null;
+        let storyPlaying = false;
+
+        function renderScene() {
+            const s = scenes[currentScene];
+            document.getElementById('sceneTitle').innerText = s.title;
+            document.getElementById('boy').innerText = s.boy;
+            document.getElementById('girl').innerText = s.girl;
+            document.getElementById('flowers').innerText = s.flower;
+            document.getElementById('flowers').style.opacity = s.opacity;
+            document.getElementById('caption').innerText = s.caption;
+
+            document.getElementById('boy').className =
+                currentScene === 0 || currentScene === 1 ? 'boy angry' : 'boy';
+            document.getElementById('girl').className =
+                currentScene < 3 ? 'girl sad' : 'girl happy';
+
+            document.getElementById('progressFill').style.width =
+                ((currentScene + 1) / scenes.length * 100) + '%';
+        }
+
+        function playStory() {
+            if (storyPlaying) return;
+            storyPlaying = true;
+            renderScene();
+            storyTimer = setTimeout(nextScene, scenes[currentScene].duration);
+        }
+        function nextScene() {
+            if (!storyPlaying) return;
+            if (currentScene < scenes.length - 1) {
+                currentScene++;
+                renderScene();
+                storyTimer = setTimeout(nextScene, scenes[currentScene].duration);
+            } else {
+                storyPlaying = false;
+            }
+        }
+        function pauseStory() {
+            storyPlaying = false;
+            clearTimeout(storyTimer);
+        }
+        function restartStory() {
+            pauseStory();
+            currentScene = 0;
+            renderScene();
+            playStory();
+        }
+        renderScene();
+
+        function forgiveYes() {
+            document.getElementById('answer').innerHTML =
+                '<h2>Thank You ❤️</h2><p>Your forgiveness means a lot. Let us move forward with understanding and kindness.</p><div style="font-size:65px">🌹💖🧸</div>';
+        }
+        function forgiveNo() {
+            document.getElementById('answer').innerHTML =
+                '<h2>That\'s Okay 🥺</h2 > <p>Take all the time you need. I respect your feelings and I am genuinely sorry.</p>';
+        }
+
+
+    </script>
+</body>
+
+</html>
